@@ -1,11 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --primary-color: #16a34a;
-  --secondary-color: #dc2626;
+  --primary-color: rgba(13,214,58,255);
+  --secondary-color: rgba(238,0,0,255);
   --yellow-color: rgb(216, 175, 77);
   --green-color: rgb(44, 165, 141);
   --purple-color: rgb(132, 89, 107);
@@ -85,4 +85,17 @@ html, body {
     100% {
       transform: rotate(360deg);
     }
+  }
+
+  .transition{
+    transition: 0.25s;
+  }
+
+  label{
+    font-family: Poppins;
+  }
+
+  .backgroundLogIn{
+    background: rgb(238,0,0);
+background: linear-gradient(90deg, rgba(238,0,0,0.3) 0%, rgba(226,232,240,1) 60%, rgba(13,214,58,0.4) 100%);
   }

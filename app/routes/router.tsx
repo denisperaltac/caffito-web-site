@@ -1,12 +1,12 @@
 "use client";
 import { Navbar } from "@/components/nav/Navbar";
-import { authUser } from "@/redux/features/userLogSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppSelector } from "@/redux/hooks";
 import React from "react";
-
+import AuthController from "../auth/authController";
+import { Fetching } from "../auth/test-caffito";
 export const Router = ({ children }: { children: React.ReactNode }) => {
   const Role = useAppSelector((state) => state.userLogReducer.Role);
-  const dispatch = useAppDispatch();
+
   let content;
 
   switch (Role) {
@@ -31,11 +31,7 @@ export const Router = ({ children }: { children: React.ReactNode }) => {
     default:
       content = (
         <>
-          <p
-            onClick={() => dispatch(authUser({ Role: "Admin", Name: "Denis" }))}
-          >
-            Log in
-          </p>
+          <AuthController />
         </>
       );
       break;
