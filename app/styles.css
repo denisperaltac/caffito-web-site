@@ -4,8 +4,8 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: rgba(13,214,58,255);
-  --secondary-color: rgba(238,0,0,255);
+  --primary-color: rgba(13, 214, 58, 255);
+  --secondary-color: rgba(238, 0, 0, 255);
   --yellow-color: rgb(216, 175, 77);
   --green-color: rgb(44, 165, 141);
   --purple-color: rgb(132, 89, 107);
@@ -17,85 +17,128 @@
   --background-color: #f2f6fc;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-  p{
-    font-size: 13px;
-  }
-  
-  .flex-container {
-    flex: 1; /* Esto hace que el elemento ocupe todo el espacio disponible en la dirección principal (vertical en este caso) */
-    display: flex;
-  }
+p {
+  font-size: 13px;
+}
 
-  .showDiv{
-    animation: showDiv ease-in-out 0.3s forwards;
-    transition: 0.3s;
+.flex-container {
+  flex: 1; /* Esto hace que el elemento ocupe todo el espacio disponible en la dirección principal (vertical en este caso) */
+  display: flex;
+}
+
+.showDiv {
+  animation: showDiv ease-in-out 0.3s forwards;
+  transition: 0.3s;
+}
+
+.hideDiv {
+  animation: hideDiv ease-in-out 0.3s forwards;
+  transition: 0.3s;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes showDiv {
+  from {
+    opacity: 0;
   }
-
-  .hideDiv{
-    animation: hideDiv ease-in-out 0.3s forwards;
-    transition: 0.3s;
+  to {
+    opacity: 1;
   }
+}
 
-
-
-  .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #000;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
+@keyframes hideDiv {
+  from {
+    opacity: 1;
   }
-
-
-  @keyframes showDiv {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    opacity: 0;
+    display: none;
   }
-  
-  @keyframes hideDiv {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      display: none;
-    }
-  }
+}
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-  .transition{
-    transition: 0.25s;
-  }
+.transition {
+  transition: 0.25s;
+}
 
-  label{
-    font-family: Poppins;
-  }
+label {
+  font-family: Poppins;
+}
 
-  .backgroundLogIn{
-    background: rgb(238,0,0);
-background: linear-gradient(90deg, rgba(238,0,0,0.3) 0%, rgba(226,232,240,1) 60%, rgba(13,214,58,0.4) 100%);
-  }
+.backgroundLogIn {
+  background: rgb(238, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 0, 0, 0.3) 0%,
+    rgba(226, 232, 240, 1) 60%,
+    rgba(13, 214, 58, 0.4) 100%
+  );
+}
+
+.mainContainer {
+  max-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.mainContainer::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.mainContainer::-webkit-scrollbar-thumb {
+  background-color: #2b4162;
+}
+
+tr {
+  cursor: pointer;
+  border-bottom: 1px solid #4a4a4a;
+  color: rgba(0, 0, 0, 1);
+  white-space: nowrap;
+  transition: 0.3s;
+}
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+th{
+  padding: 10px 10px;
+}
+td{
+  padding: 10px 10px;
+}

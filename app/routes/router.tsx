@@ -3,7 +3,6 @@ import { Navbar } from "@/components/nav/Navbar";
 import { useAppSelector } from "@/redux/hooks";
 import React from "react";
 import AuthController from "../auth/authController";
-import { Fetching } from "../auth/test-caffito";
 export const Router = ({ children }: { children: React.ReactNode }) => {
   const Role = useAppSelector((state) => state.userLogReducer.Role);
 
@@ -14,7 +13,9 @@ export const Router = ({ children }: { children: React.ReactNode }) => {
       content = (
         <>
           <Navbar />
-          <div className="flex p-3 bg-slate-100 w-full h-full">{children}</div>
+          <div className="mainContainer flex p-3 bg-slate-100 w-full h-full">
+            {children}
+          </div>
         </>
       );
       break;
