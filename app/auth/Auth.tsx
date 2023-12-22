@@ -59,7 +59,7 @@ export const Auth: React.FC<AuthProps> = ({
             )}
           </div>
           <div className="flex items-center justify-between">
-            <Btn text="Sign In" action={onSubmit} />
+            <Btn text="Sign In" action={onSubmit} type="close" />
 
             <a
               className="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800 transition"

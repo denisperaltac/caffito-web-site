@@ -4,6 +4,7 @@ interface InputProps {
   title: string;
   attribute: string;
   placeholder?: string;
+  value?: string | number;
   form: {};
   setForm: React.Dispatch<React.SetStateAction<{}>>;
 }
@@ -13,6 +14,7 @@ export const Input = ({
   title,
   attribute,
   placeholder,
+  value,
 }: InputProps) => {
   return (
     <div className="mb-4 mt-2 mr-4 ">
@@ -25,6 +27,7 @@ export const Input = ({
       <input
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         id="username"
+        value={value && value}
         type="text"
         placeholder={placeholder || "..."}
         onChange={(e) => setForm({ ...form, [attribute]: e.target.value })}
