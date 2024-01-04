@@ -1,21 +1,28 @@
-async function loadProducts() {
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-    return "Error";
-  }
-}
+"use client";
+import { useState } from "react";
+import ProductosComponent from "./component";
 
-export default async function ProductosPage() {
-  // const Products = await loadProducts();
-  const Products = [{ hola: "hola" }];
-
+export default function ProductosPage() {
+  const [form, setForm] = useState({});
+  const [resp, setResp] = useState(["Loading"]);
+  const [disabledPaginator, setDisabledPaginator] = useState(false);
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(20);
+  const [size, setSize] = useState(20);
+  const onSubmit = () => {};
   return (
-    <div>
-      <h1>Productos Page</h1>
-    </div>
+    <ProductosComponent
+      setForm={setForm}
+      form={form}
+      page={page}
+      count={count}
+      setPage={setPage}
+      onSubmit={onSubmit}
+      resp={resp}
+      setDisabledPaginator={setDisabledPaginator}
+      disabledPaginator={disabledPaginator}
+      size={size}
+      setSize={setSize}
+    />
   );
 }

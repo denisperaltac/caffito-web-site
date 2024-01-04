@@ -31,7 +31,9 @@ body {
 p {
   font-size: 13px;
 }
-
+h5 {
+  font-size: 20px;
+}
 .flex-container {
   flex: 1; /* Esto hace que el elemento ocupe todo el espacio disponible en la dirección principal (vertical en este caso) */
   display: flex;
@@ -220,6 +222,7 @@ td {
 }
 
 .iconStyle {
+  max-width: 50px;
   text-align: -webkit-center;
   align-items: center;
   justify-content: center;

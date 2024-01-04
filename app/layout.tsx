@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${Poppin.className}`}>
+      <body className={`${Poppin.className} antialiased`}>
         <Providers>
           <Router>{children}</Router>
         </Providers>

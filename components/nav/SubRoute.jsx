@@ -1,12 +1,30 @@
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
   const [open, setOpen] = useState(false);
+  const componentRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        componentRef.current &&
+        !componentRef.current.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [componentRef]);
 
   return (
-    <div>
+    <div ref={componentRef}>
       <div
         className={`border-b-2 px-2 cursor-pointer flex items-center align-middle	 hover:border-green-300 transition ease-out duration-300 ${
           open &&
@@ -33,7 +51,10 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
             <Link
               href={Route.route}
               className="flex items-center"
-              onClick={() => setLoading(true)}
+              onClick={() => {
+                setOpen(false);
+                setLoading(true);
+              }}
             >
               {icon && icon}
               <p className="pl-2 pt-[2px] text-small text-center align-middle items-center">
@@ -45,7 +66,10 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
       </div>
 
       {open && (
-        <div className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-200 z-10">
+        <div
+          id="openSubRoutes"
+          className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-200 z-10"
+        >
           {Route.subRoutes.map((e) => (
             <Link
               onClick={() => {

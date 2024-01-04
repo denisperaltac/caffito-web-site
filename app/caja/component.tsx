@@ -1,11 +1,7 @@
 "use client";
-import BtnIcon from "@/components/btn/BtnIcon";
 import { Table } from "@/components/table/Table";
 import formatMoneyUSD from "@/services/FormatMoneyUSD";
 import { useState } from "react";
-import { FiMinusCircle } from "react-icons/fi";
-import { IoCheckmarkCircleOutline } from "react-icons/io5";
-import { FaRegSave } from "react-icons/fa";
 import { HiOutlineEye } from "react-icons/hi";
 import { AiOutlineDelete } from "react-icons/ai";
 
@@ -14,6 +10,7 @@ import { TbArrowsExchange } from "react-icons/tb";
 import Paginator from "@/components/paginator/Paginator";
 import { Header } from "@/components/header/header";
 import Modal from "@/components/modals/Modal";
+import Btn from "@/components/btn/Btn";
 
 const cajas = [
   {
@@ -1538,6 +1535,202 @@ const cajas = [
   },
 ];
 
+const movimientos = [
+  {
+    id: 305697,
+    ingreso: 3783.15,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302290,
+    tipoPagoId: 2,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "TARJETA DEBITO                          ",
+  },
+  {
+    id: 305696,
+    ingreso: 12500.0,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302289,
+    tipoPagoId: 1,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "EFECTIVO                                ",
+  },
+  {
+    id: 305695,
+    ingreso: 2810.0,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302288,
+    tipoPagoId: 1,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "EFECTIVO                                ",
+  },
+  {
+    id: 305694,
+    ingreso: 47000.0,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302287,
+    tipoPagoId: 1,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "EFECTIVO                                ",
+  },
+  {
+    id: 305693,
+    ingreso: 11161.72,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302286,
+    tipoPagoId: 2,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "TARJETA DEBITO                          ",
+  },
+  {
+    id: 305692,
+    ingreso: 869.04,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302285,
+    tipoPagoId: 1,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "EFECTIVO                                ",
+  },
+  {
+    id: 305691,
+    ingreso: 6901.7,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302284,
+    tipoPagoId: 1,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "EFECTIVO                                ",
+  },
+  {
+    id: 305690,
+    ingreso: 2993.0,
+    egreso: 0.0,
+    descripcion: "FACTURA                                           ",
+    cajaId: 4310,
+    tipoMovimientoId: 4,
+    facturaId: 302283,
+    tipoPagoId: 1,
+    tipoMovimientoNombre: "INGRESO                                           ",
+    tipoPagoNombre: "EFECTIVO                                ",
+  },
+];
+
+const factura = {
+  id: 302290,
+  fechaCreacion: "2023-12-23T12:32:32.086-03:00",
+  total: 3783.15,
+  subtotal: 3783.1499999999996,
+  descuento: 0.0,
+  interes: 0.0,
+  clienteId: 1,
+  promocionId: null,
+  comprobanteId: null,
+  puntoDeVentaId: 1,
+  facturaRenglons: [
+    {
+      id: 1229394,
+      cantidad: 1,
+      precioCosto: 336.0,
+      precioVenta: 537.6,
+      peso: 0.24,
+      detalle:
+        "MANTECA                                            CAFFITO                                                                                            ",
+      facturaId: 302290,
+      productoId: 1678,
+    },
+    {
+      id: 1229395,
+      cantidad: 1,
+      precioCosto: 336.0,
+      precioVenta: 547.2,
+      peso: 0.24,
+      detalle:
+        "PALETA                                             CAFFITO                                                                                            ",
+      facturaId: 302290,
+      productoId: 467,
+    },
+    {
+      id: 1229392,
+      cantidad: 1,
+      precioCosto: 370.5,
+      precioVenta: 552.75,
+      peso: 0.39,
+      detalle:
+        "PAN                                                BERNASCONI                                                                                         ",
+      facturaId: 302290,
+      productoId: 404,
+    },
+    {
+      id: 1229393,
+      cantidad: 1,
+      precioCosto: 551.0,
+      precioVenta: 888.0,
+      peso: 0.29,
+      detalle:
+        "JAMON COCIDO                                       CAFFITO                                                                                            ",
+      facturaId: 302290,
+      productoId: 2118,
+    },
+    {
+      id: 1229390,
+      cantidad: 3,
+      precioCosto: 80.0,
+      precioVenta: 128.0,
+      peso: 0.0,
+      detalle:
+        "HUEVOS POR UNIDAD Caffito                                                                                                                             ",
+      facturaId: 302290,
+      productoId: 4561,
+    },
+    {
+      id: 1229391,
+      cantidad: 1,
+      precioCosto: 540.0,
+      precioVenta: 873.6,
+      peso: 0.27,
+      detalle:
+        "QUESO BARRA                                        CAFFITO                                                                                            ",
+      facturaId: 302290,
+      productoId: 799,
+    },
+  ],
+  pagos: [
+    {
+      id: 140350,
+      monto: 3783.15,
+      tipoPagoId: 2,
+      tipoPagoNombre: "TARJETA DEBITO                          ",
+      facturaId: 302290,
+      cajaId: null,
+      cuentaCorrienteId: null,
+    },
+  ],
+  puntoDeVentaNombre: "CASA CENTRAL",
+  promocionNombre: null,
+  clienteNombreApellido:
+    "CONSUMIDOR FINAL                                                                                     ",
+  ticket: null,
+};
+
 function formatearFechaHora(cadenaFechaHora: string, isDate?: boolean) {
   const fecha = new Date(cadenaFechaHora);
 
@@ -1563,7 +1756,9 @@ export default function CajaComponent({
   setOpen,
 }: any) {
   const [cajaSelected, setCajaSelected] = useState<any>({});
-  console.log(cajaSelected);
+  const [typeModal, setTypeModal] = useState<string>("");
+  const [facturaSelected, setFacturaSelected] = useState<any>({});
+  console.log(facturaSelected);
   return (
     <div className="w-full">
       <Header title="Cajas" />
@@ -1616,12 +1811,20 @@ export default function CajaComponent({
                     className="w-6 h-6 iconHover"
                     onClick={() => {
                       setCajaSelected(e);
+                      setTypeModal("view");
                       setOpen(true);
                     }}
                   />
                 </td>
                 <td className="iconStyle">
-                  <TbArrowsExchange className="w-6 h-6 iconHover" />
+                  <TbArrowsExchange
+                    className="w-6 h-6 iconHover"
+                    onClick={() => {
+                      setCajaSelected(e);
+                      setTypeModal("movements");
+                      setOpen(true);
+                    }}
+                  />
                 </td>
                 <td className="iconStyle">
                   <AiOutlineDelete
@@ -1648,56 +1851,154 @@ export default function CajaComponent({
         />
       </section>
       <Modal setOpen={setOpen} open={open} title="Información sobre caja">
-        <Table
-          thead={
-            <tr className="thead">
-              <th>Tipo Pago</th>
-              <th>Ingreso sistema ($)</th>
-              <th>Ingreso declarado ($)</th>
-              <th>Diferencia</th>
-            </tr>
-          }
-          tbody={cajaSelected.flujoCajas?.map((e: any) => {
-            return (
-              <tr key={e.id}>
-                <td>{e.tipoPagoNombre}</td>
+        {typeModal === "view" ? (
+          <>
+            <Table
+              thead={
+                <tr className="thead">
+                  <th>Tipo Pago</th>
+                  <th>Ingreso sistema ($)</th>
+                  <th>Ingreso declarado ($)</th>
+                  <th>Diferencia</th>
+                </tr>
+              }
+              tbody={cajaSelected.flujoCajas?.map((e: any) => {
+                return (
+                  <tr key={e.id}>
+                    <td>{e.tipoPagoNombre}</td>
 
-                <td className={` text-center`}>
-                  {formatMoneyUSD(e.ingresoEfectivo.toFixed(2))}
-                </td>
-                <td className={` text-center`}>
-                  {formatMoneyUSD(e.pendiente.toFixed(2))}
-                </td>
-                <td
+                    <td className={` text-center`}>
+                      {formatMoneyUSD(e.ingresoEfectivo.toFixed(2))}
+                    </td>
+                    <td className={` text-center`}>
+                      {formatMoneyUSD(e.pendiente.toFixed(2))}
+                    </td>
+                    <td
+                      className={`text-right font-bold ${
+                        e.diferencia < 0 ? "text-red-500" : "text-green-700"
+                      }`}
+                    >
+                      {formatMoneyUSD(e.diferencia)}
+                    </td>
+                  </tr>
+                );
+              })}
+            />
+            <footer className="flex items-end justify-end">
+              <div className="flex items-end mt-4 bg-gray-200 rounded-sm p-2">
+                <h5 className="mr-4">Total:</h5>
+                <h5
                   className={`text-right font-bold ${
-                    e.diferencia < 0 ? "text-red-500" : "text-green-700"
+                    cajaSelected.ingreso +
+                      cajaSelected.egreso -
+                      cajaSelected.cierre <
+                    0
+                      ? "text-red-500"
+                      : "text-green-700"
                   }`}
                 >
-                  {formatMoneyUSD(e.diferencia)}
-                </td>
+                  {formatMoneyUSD(
+                    cajaSelected.ingreso +
+                      cajaSelected.egreso -
+                      cajaSelected.cierre
+                  )}
+                </h5>
+              </div>
+            </footer>
+          </>
+        ) : facturaSelected?.id ? (
+          <section>
+            <header className="flex justify-between">
+              <div>
+                <h5>Fecha de creación:</h5>
+                <h5>
+                  {formatearFechaHora(facturaSelected.fechaCreacion, true) +
+                    "," +
+                    formatearFechaHora(facturaSelected.fechaCreacion)}
+                </h5>
+              </div>
+              0. <h5>Cliente: {facturaSelected.clienteId}</h5>
+            </header>
+
+            <Table
+              thead={
+                <tr className="thead">
+                  <th>Detalle</th>
+                  <th>Cantidad</th>
+                  <th>Precio costo ($)</th>
+                  <th>Precio venta ($)</th>
+                  <th>Total ($)</th>
+                </tr>
+              }
+              tbody={facturaSelected.facturaRenglons?.map((e: any) => {
+                return (
+                  <tr key={e.id}>
+                    <td className={` text-center`}>{e.detalle}</td>
+                    <td className={` text-center`}>{e.cantidad}</td>
+
+                    <td className={` text-center`}>
+                      {formatMoneyUSD(e.precioCosto)}
+                    </td>
+                    <td className={` text-center`}>
+                      {formatMoneyUSD(e.precioVenta)}
+                    </td>
+                    <td className={` text-center`}>
+                      {formatMoneyUSD(e.precioVenta * e.cantidad)}
+                    </td>
+                  </tr>
+                );
+              })}
+            />
+            <footer>
+              <h5>
+                Subtotal: {formatMoneyUSD(facturaSelected.subtotal.toFixed(2))}
+              </h5>
+              <h5>
+                Interes: {formatMoneyUSD(facturaSelected.interes.toFixed(2))}
+              </h5>
+              <h5>
+                Descuento:{" "}
+                {formatMoneyUSD(facturaSelected.descuento.toFixed(2))}
+              </h5>
+              <h5>Total: {formatMoneyUSD(facturaSelected.total.toFixed(2))}</h5>
+            </footer>
+            <Btn
+              text="Back"
+              type="back"
+              action={() => setFacturaSelected([])}
+            />
+          </section>
+        ) : (
+          <Table
+            thead={
+              <tr className="thead">
+                <th>Ingreso ($)</th>
+                <th>Egreso ($)</th>
+                <th>Tipo de movimiento</th>
+                <th>Factura</th>
+                <th>Tipo Pago</th>
               </tr>
-            );
-          })}
-        />
-        <footer className="flex items-end justify-end">
-          <div className="flex items-end mt-4 bg-gray-200 rounded-sm p-2">
-            <h5 className="mr-4">Total:</h5>
-            <h5
-              className={`text-right font-bold ${
-                cajaSelected.ingreso +
-                  cajaSelected.egreso -
-                  cajaSelected.cierre <
-                0
-                  ? "text-red-500"
-                  : "text-green-700"
-              }`}
-            >
-              {formatMoneyUSD(
-                cajaSelected.ingreso + cajaSelected.egreso - cajaSelected.cierre
-              )}
-            </h5>
-          </div>
-        </footer>
+            }
+            tbody={movimientos?.map((e: any) => {
+              return (
+                <tr
+                  key={e.id}
+                  onClick={() => {
+                    setFacturaSelected(factura);
+                  }}
+                >
+                  <td className={` text-center`}>
+                    {formatMoneyUSD(e.ingreso)}
+                  </td>
+                  <td className={` text-center`}>{formatMoneyUSD(e.egreso)}</td>
+                  <td className={` text-center`}>{e.descripcion}</td>
+                  <td className={` text-center`}>{e.cajaId}</td>
+                  <td className={` text-center`}>{e.tipoPagoNombre}</td>
+                </tr>
+              );
+            })}
+          />
+        )}
       </Modal>
     </div>
   );
