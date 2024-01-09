@@ -3,12 +3,6 @@ import { Router } from "./routes/router";
 import "./styles.css";
 import { Poppins } from "next/font/google";
 
-export const metadata = {
-  title: "Caffito",
-  description: "Esta es la Website de Caffito",
-  publisher: "Lautaro I. - Denis Peralta",
-};
-
 const Poppin = Poppins({
   weight: ["300", "400", "700"],
   style: ["italic", "normal"],
