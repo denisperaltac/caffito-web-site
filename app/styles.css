@@ -1,88 +1,236 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --primary-color: #16a34a;
-  --secondary-color: #dc2626;
+  --primary-color: rgba(13, 214, 58, 1);
+  --secondary-color: rgba(238, 0, 0, 1);
   --yellow-color: rgb(216, 175, 77);
   --green-color: rgb(44, 165, 141);
   --purple-color: rgb(132, 89, 107);
   --success-color: #198754;
   --warning-color: #ffc107;
   --error-color: #dc3545;
-  --hover-color: #002d5dc3;
-  --hover-color-hard: #002d5d30;
+  --hover-green-color: rgba(13, 214, 58, 0.5);
+  --hover-green-color-hard: rgba(13, 214, 58, 0.1);
   --background-color: #f2f6fc;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 
-html, body {
-    height: 100%;
-    margin: 0;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
-  p{
-    font-size: 13px;
-  }
-  
-  .flex-container {
-    flex: 1; /* Esto hace que el elemento ocupe todo el espacio disponible en la dirección principal (vertical en este caso) */
-    display: flex;
-  }
+p {
+  font-size: 13px;
+}
+h5 {
+  font-size: 20px;
+}
+.flex-container {
+  flex: 1; /* Esto hace que el elemento ocupe todo el espacio disponible en la dirección principal (vertical en este caso) */
+  display: flex;
+}
 
-  .showDiv{
-    animation: showDiv ease-in-out 0.3s forwards;
-    transition: 0.3s;
+.showDiv {
+  animation: showDiv ease-in-out 0.3s forwards;
+  transition: 0.3s;
+}
+
+.hideDiv {
+  animation: hideDiv ease-in-out 0.3s forwards;
+  transition: 0.3s;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes showDiv {
+  from {
+    opacity: 0;
   }
-
-  .hideDiv{
-    animation: hideDiv ease-in-out 0.3s forwards;
-    transition: 0.3s;
+  to {
+    opacity: 1;
   }
+}
 
-
-
-  .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #000;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
+@keyframes hideDiv {
+  from {
+    opacity: 1;
   }
-
-
-  @keyframes showDiv {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    opacity: 0;
+    display: none;
   }
-  
-  @keyframes hideDiv {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      display: none;
-    }
-  }
+}
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.transition {
+  transition: 0.25s;
+}
+
+label {
+  font-family: Poppins;
+}
+
+.backgroundLogIn {
+  background: rgb(238, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(238, 0, 0, 0.3) 0%,
+    rgba(226, 232, 240, 1) 60%,
+    rgba(13, 214, 58, 0.4) 100%
+  );
+}
+
+.mainContainer {
+  max-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.mainContainer::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.mainContainer::-webkit-scrollbar-thumb {
+  background-color: var(--success-color);
+}
+
+.tableScroll {
+  max-height: 75vh;
+}
+
+.tableScroll::-webkit-scrollbar {
+  background-color: #f3f4f6;
+  width: 8px;
+  height: 10px;
+  cursor: pointer;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.tableScroll::-webkit-scrollbar-thumb {
+  background-color: var(--success-color);
+
+  cursor: pointer;
+}
+
+tr {
+  cursor: pointer;
+  border-bottom: 1px solid #4a4a4a;
+  color: rgba(0, 0, 0, 1);
+  white-space: nowrap;
+  transition: 0.3s;
+}
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+tr:nth-child(odd) {
+  background-color: whitesmoke;
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+th {
+  padding: 10px 10px;
+}
+td {
+  font-size: 13px;
+  padding: 8px 8px;
+}
+
+.thead {
+  background-color: #e0e0e088 !important;
+}
+.thead:hover {
+  background-color: #e0e0e088 !important;
+}
+
+.containerPagination {
+  max-height: 50px;
+  width: 99%;
+  position: fixed;
+  right: 0vw;
+  bottom: 12px;
+  font-family: Poppins;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Poppins;
+  gap: 3px;
+}
+
+.pagination .page-num {
+  font-family: Inter;
+  padding: 7px 12px;
+  font-family: Poppins;
+  cursor: pointer;
+  border: var(--green-color) solid 1px;
+  border-radius: 3px;
+  font-weight: 400;
+  background-color: whitesmoke;
+  box-shadow: 3px 3px 5px 0px rgba(165, 162, 162, 0.5);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination .page-num:hover {
+  background-color: var(--hover-green-color);
+  color: whitesmoke;
+}
+
+.pagination .active {
+  background-color: var(--green-color);
+  border: var(--hover-green-color) solid 1px;
+  color: whitesmoke;
+  padding: 7px 12px;
+  pointer-events: none;
+}
+
+.page-num {
+  color: #002852;
+  font-family: Poppins;
+  font-size: 14px;
+}
+
+.iconStyle {
+  max-width: 50px;
+  text-align: -webkit-center;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconHover {
+  transition: 0.3s;
+}
+.iconHover:hover {
+  scale: 1.4;
+}

@@ -1,13 +1,7 @@
 import { Providers } from "@/redux/provider";
-import { Router } from "./routes/router";
+import { Router } from "../routes/router";
 import "./styles.css";
 import { Poppins } from "next/font/google";
-
-export const metadata = {
-  title: "Caffito",
-  description: "Esta es la Website de Caffito",
-  publisher: "Lautaro I. - Denis Peralta",
-};
 
 const Poppin = Poppins({
   weight: ["300", "400", "700"],
@@ -21,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${Poppin.className}`}>
+      <body className={`${Poppin.className} antialiased`}>
         <Providers>
           <Router>{children}</Router>
         </Providers>

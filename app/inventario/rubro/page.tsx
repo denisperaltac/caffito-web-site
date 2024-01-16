@@ -1,3 +1,7 @@
-export default function RubroPage({ children }: { children: React.ReactNode }) {
+import React from "react";
+
+const RubroPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <div>{children}</div>;
-}
+};
+
+export default RubroPage;
