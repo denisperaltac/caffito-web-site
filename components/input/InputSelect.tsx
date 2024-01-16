@@ -31,9 +31,9 @@ export const InputSelect = ({
         placeholder={placeholder || "..."}
         onChange={(e) => setForm({ ...form, [attribute]: e.target.value })}
       >
-        {options.map((e: any) => {
+        {options.map((e: any, i: number) => {
           return (
-            <option value={e.value} selected={e.selected}>
+            <option value={e.value} selected={e.selected} key={i}>
               {e.label}
             </option>
           );

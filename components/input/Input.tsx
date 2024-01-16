@@ -28,6 +28,7 @@ export const Input = ({
         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         id="username"
         value={value && value}
+        autoComplete="off"
         type="text"
         placeholder={placeholder || "..."}
         onChange={(e) => setForm({ ...form, [attribute]: e.target.value })}

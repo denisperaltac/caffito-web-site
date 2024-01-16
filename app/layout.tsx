@@ -1,5 +1,5 @@
 import { Providers } from "@/redux/provider";
-import { Router } from "./routes/router";
+import { Router } from "../routes/router";
 import "./styles.css";
 import { Poppins } from "next/font/google";
 

@@ -633,6 +633,7 @@ export default function GestionDeStockComponent({
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
+            autoComplete="off"
             value={
               formProduct.productoProveedors &&
               formProduct.productoProveedors[0]?.precioCosto
@@ -660,6 +661,7 @@ export default function GestionDeStockComponent({
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
+            autoComplete="off"
             value={porcentaje}
             type="number"
             placeholder={"..."}
@@ -690,6 +692,7 @@ export default function GestionDeStockComponent({
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
+            autoComplete="off"
             value={
               formProduct.productoProveedors &&
               formProduct.productoProveedors[0]?.precioVenta
@@ -717,6 +720,7 @@ export default function GestionDeStockComponent({
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
+            autoComplete="off"
             value={porcentajeMay}
             type="number"
             placeholder={"..."}
@@ -747,6 +751,7 @@ export default function GestionDeStockComponent({
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="username"
+            autoComplete="off"
             value={
               formProduct.productoProveedors &&
               formProduct?.productoProveedors[0]?.precioMayorista

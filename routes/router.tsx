@@ -1,8 +1,8 @@
 "use client";
-import { Navbar } from "@/components/nav/Navbar";
 import { useAppSelector } from "@/redux/hooks";
 import React from "react";
-import AuthController from "../auth/authController";
+import AuthController from "../app/auth/authController";
+import { Navbar } from "@/components/nav/Navbar";
 export const Router = ({ children }: { children: React.ReactNode }) => {
   const Role = useAppSelector((state) => state.userLogReducer.Role);
 
