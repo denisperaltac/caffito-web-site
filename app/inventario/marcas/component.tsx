@@ -112,7 +112,11 @@ export default function MarcasComponent({
         <Header title="Marcas"></Header>
       </header>
       <div className="flex justify-end mt-[-20px] mb-2">
-        <BtnIcon text="Agregar Marca" action={() => console.log("Crear pdf")}>
+        <BtnIcon
+          text="Agregar Marca"
+          type="Save"
+          action={() => console.log("Crear pdf")}
+        >
           <FaPlus />
         </BtnIcon>
       </div>

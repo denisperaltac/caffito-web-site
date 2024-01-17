@@ -537,7 +537,11 @@ export default function GestionDeStockComponent({
     <div className="w-full">
       <header className="mb-4">
         <Header title="Gestion de stock">
-          <BtnIcon text="Filtros" action={() => setOpenFilter(!openFilter)}>
+          <BtnIcon
+            text="Filtros"
+            type="Save"
+            action={() => setOpenFilter(!openFilter)}
+          >
             {!openFilter ? <LuFilter /> : <RxCross2 />}
           </BtnIcon>
         </Header>
@@ -772,6 +776,7 @@ export default function GestionDeStockComponent({
         <div className="mb-4 mt-2 mr-4 ">
           <label className="block text-gray-700 text-sm font-bold mb-7" />
           <BtnIcon
+            type="Save"
             action={() => console.log("Ejecutamos el cambio")}
             text="Save"
           >

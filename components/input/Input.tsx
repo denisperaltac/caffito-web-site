@@ -17,7 +17,7 @@ export const Input = ({
   value,
 }: InputProps) => {
   return (
-    <div className="mb-4 mt-2 mr-4 ">
+    <div className="mb-4 mt-2 mr-4 w-full">
       <label
         className="block text-gray-700 text-sm font-bold mb-2"
         htmlFor="username"
@@ -25,12 +25,12 @@ export const Input = ({
         {title}
       </label>
       <input
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:bg-slate-50 hover:bg-slate-50 transition-all duration-300 ease-in-out"
         id="username"
         value={value && value}
         autoComplete="off"
         type="text"
-        placeholder={placeholder || "..."}
+        placeholder={placeholder || ""}
         onChange={(e) => setForm({ ...form, [attribute]: e.target.value })}
       />
     </div>

@@ -454,6 +454,7 @@ export default function ProveedorsComponent({
       <div className="flex justify-end mt-[-20px] mb-2">
         <BtnIcon
           text="Agregar Proveedor"
+          type="Save"
           action={() => console.log("Crear pdf")}
         >
           <FaPlus />
