@@ -14,6 +14,7 @@ import { HiOutlineEye } from "react-icons/hi2";
 import { TbArrowsExchange } from "react-icons/tb";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaPlus } from "react-icons/fa";
+import Link from "next/link";
 
 const productos = [
   {
@@ -704,15 +705,18 @@ export default function ProductosComponent({
     <div className="w-full">
       <header className="mb-4">
         <Header title="Productos">
-          <BtnIcon text="Filtros" action={() => setOpenFilter(!openFilter)}>
-            {!openFilter ? <LuFilter /> : <RxCross2 />}
-          </BtnIcon>
           <BtnIcon
-            text="Agregar Producto"
+            text="Filtros"
+            type="Save"
             action={() => setOpenFilter(!openFilter)}
           >
-            <FaPlus />
+            {!openFilter ? <LuFilter /> : <RxCross2 />}
           </BtnIcon>
+          <Link href="/inventario/productos/nuevo">
+            <BtnIcon text="Agregar Producto" type="Save">
+              <FaPlus />
+            </BtnIcon>
+          </Link>
         </Header>
       </header>
       {openFilter && (

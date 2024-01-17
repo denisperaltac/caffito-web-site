@@ -791,7 +791,7 @@ export default function ClientesComponent({
   return (
     <div className="w-full">
       <Header title="Clientes">
-        <BtnIcon text="Agregar Cliente" action={() => {}}>
+        <BtnIcon text="Agregar Cliente" action={() => {}} type="Save">
           <FaPlus />
         </BtnIcon>
       </Header>

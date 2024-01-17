@@ -726,6 +726,7 @@ export default function EtiquetasComponent({
       <div className="flex justify-center">
         <BtnIcon
           action={() => console.log("Crear pdf")}
+          type="Save"
           disabled={productosAdded.length < 1 && true}
         >
           <PiFilePdfDuotone />

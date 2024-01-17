@@ -71,6 +71,7 @@ export default function CategoriasComponent({
       <div className="flex justify-end mt-[-20px] mb-2">
         <BtnIcon
           text="Agregar Categoria"
+          type="Save"
           action={() => console.log("Crear pdf")}
         >
           <FaPlus />
