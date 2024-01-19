@@ -8,6 +8,7 @@ import { Table } from "@/components/table/Table";
 import { FaPlus } from "react-icons/fa6";
 import { MdOutlineCancel } from "react-icons/md";
 import { FaRegSave } from "react-icons/fa";
+import Link from "next/link";
 
 type props = {
   form: any;
@@ -212,9 +213,11 @@ export const NewProductComponent = ({ form, setForm }: props) => {
           />
         </div>
         <div className="flex space-x-2">
-          <BtnIcon text="Cancelar" type="Cancel">
-            <MdOutlineCancel />
-          </BtnIcon>
+          <Link href="/inventario/productos">
+            <BtnIcon text="Cancelar" type="Cancel">
+              <MdOutlineCancel />
+            </BtnIcon>
+          </Link>
           <BtnIcon text="Guardar" type="Save">
             <FaRegSave />
           </BtnIcon>

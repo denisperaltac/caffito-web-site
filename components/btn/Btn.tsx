@@ -19,14 +19,14 @@ const Btn: React.FC<BtnProps> = ({
     <button
       type="button"
       onClick={() => action()}
-      className={`flex items-center justify-center py-1 px-2  border transition ${
+      className={`hover:filter hover:shadow-lg hover:scale-105 text-slate-100 rounded max-w-[200px] max-h-10 flex items-center justify-between py-2 px-2 border transition ${
         type === "close"
-          ? "bg-red-500 hover:bg-red-700 text-white rounded"
+          ? "bg-red-500 "
           : type === "save"
-          ? "bg-green-500 hover:bg-green-700 text-white rounded"
+          ? "bg-sky-500 "
           : type === "white"
-          ? "bg-white hover:bg-slate-700 text-black rounded"
-          : type === "info" && "bg-sky-500 hover:bg-sky-700 text-white rounded"
+          ? "bg-white text-black "
+          : type === "info" && "bg-sky-500"
       } ${disabled && "pointer-events-none opacity-40"} ${
         marginRigth && `mr-[5px]`
       }`}

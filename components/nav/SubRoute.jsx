@@ -31,7 +31,7 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
           "bg-green-50 border-green-200 rounded-sm hover:border-green-400"
         } ${
           Route.route === pathName
-            ? "pointer-events-none border-green-200 opacity-90"
+            ? "pointer-events-none opacity-70 bg-slate-200 rounded"
             : "border-transparent"
         } ${
           Route.subRoutes?.find((e) => e.route === pathName) && "bg-green-100"
@@ -68,7 +68,7 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
       {open && (
         <div
           id="openSubRoutes"
-          className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-200 z-10"
+          className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-500 z-10"
         >
           {Route.subRoutes.map((e) => (
             <Link
@@ -78,13 +78,14 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
               }}
               href={e.route}
               key={e.route}
-              className={`transition ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
+              className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
               ${
                 e.route === pathName &&
                 "pointer-events-none bg-green-100 border-green-200 opacity-70"
               }
             }`}
             >
+              {e.icon && e.icon}
               <p>{e.name}</p>
             </Link>
           ))}

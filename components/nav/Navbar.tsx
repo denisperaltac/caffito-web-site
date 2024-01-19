@@ -6,13 +6,34 @@ import { usePathname } from "next/navigation";
 import { Loader } from "../loader/Loader";
 import LogoCaffito from "@/assets/LogoCaffito.png";
 import { BiHome } from "react-icons/bi";
-import { BsBoxes, BsGraphUpArrow, BsShop, BsPersonGear } from "react-icons/bs";
+import {
+  BsBoxes,
+  BsGraphUpArrow,
+  BsShop,
+  BsPersonGear,
+  BsGear,
+} from "react-icons/bs";
 import { GoGear } from "react-icons/go";
 import { LiaCashRegisterSolid } from "react-icons/lia";
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { IoPersonAddOutline } from "react-icons/io5";
-import { MdOutlinePeopleAlt } from "react-icons/md";
+import { MdLogout, MdOutlinePeopleAlt } from "react-icons/md";
 import Image from "next/image";
+import {
+  FaBoxOpen,
+  FaLock,
+  FaPercent,
+  FaRegBell,
+  FaRegHeart,
+  FaRegRegistered,
+  FaTachometerAlt,
+  FaTags,
+  FaTools,
+  FaTruck,
+} from "react-icons/fa";
+import { FaBoxesStacked, FaListCheck } from "react-icons/fa6";
+import { TbCategory2 } from "react-icons/tb";
+import { PiTagChevronBold } from "react-icons/pi";
 
 const Routes = [
   { title: "Inicio", route: "/", icon: <BiHome /> },
@@ -21,15 +42,36 @@ const Routes = [
     route: "/inventario",
     icon: <BsBoxes />,
     subRoutes: [
-      { name: "Gestion de stock", route: "/inventario/gestionDeStock" },
-      // { name: "Movimiento Stock", route: "/inventario/movimientoStock" },
-      { name: "Productos", route: "/inventario/productos" },
-      { name: "Marcas", route: "/inventario/marcas" },
-      { name: "Proveedor", route: "/inventario/proovedor" },
-      { name: "Categorias", route: "/inventario/categorias" },
-      { name: "Etiquetas", route: "/inventario/etiquetas" },
-      // { name: "Rubro", route: "/inventario/rubro" },
-      // { name: "Impuesto", route: "/inventario/impuesto" },
+      {
+        name: "Gestion de stock",
+        route: "/inventario/gestion-de-Stock",
+        icon: <FaBoxesStacked />,
+      },
+      // { name: "Movimiento Stock", route: "/inventario/movimiento-stock" },
+      {
+        name: "Productos",
+        route: "/inventario/productos",
+        icon: <FaBoxOpen />,
+      },
+      { name: "Etiquetas", route: "/inventario/etiquetas", icon: <FaTags /> },
+      { name: "Proveedor", route: "/inventario/proovedor", icon: <FaTruck /> },
+      {
+        name: "Categorias",
+        route: "/inventario/categorias",
+        icon: <TbCategory2 />,
+      },
+      {
+        name: "Marcas",
+        route: "/inventario/marcas",
+        icon: <FaRegRegistered />,
+      },
+
+      {
+        name: "Rubro",
+        route: "/inventario/rubro",
+        icon: <PiTagChevronBold />,
+      },
+      { name: "Impuesto", route: "/inventario/impuesto", icon: <FaPercent /> },
     ],
   },
 
@@ -42,9 +84,56 @@ const Routes = [
     title: "Administración",
     route: "/administracion",
     icon: <IoPersonAddOutline />,
+    subRoutes: [
+      {
+        name: "Gestion de usuarios",
+        route: "/administracion/gestion-de-usuarios",
+        icon: <BsPersonGear />,
+      },
+
+      {
+        name: "Métricas",
+        route: "/administracion/metricas",
+        icon: <FaTachometerAlt />,
+      },
+      { name: "Salud", route: "/administracion/salud", icon: <FaRegHeart /> },
+      {
+        name: "Configuración",
+        route: "/administracion/configuración",
+        icon: <BsGear />,
+      },
+      {
+        name: "Auditorías",
+        route: "/administracion/auditorias",
+        icon: <FaRegBell />,
+      },
+      { name: "Logs", route: "/administracion/logs", icon: <FaListCheck /> },
+    ],
   },
   { title: "Configuraciones", route: "/configuraciones", icon: <GoGear /> },
-  { title: "Cuenta", route: "/cuenta", icon: <BsPersonGear /> },
+  {
+    title: "Cuenta",
+    route: "/cuenta",
+    icon: <BsPersonGear />,
+    subRoutes: [
+      {
+        name: "Ajustes",
+        route: "/cuenta/ajustes",
+        icon: <FaTools />,
+      },
+
+      {
+        name: "Contraseña",
+        route: "/cuenta/contraseña",
+        icon: <FaLock />,
+      },
+      {
+        name: "Cerrar sesión",
+        route: "/cuenta/cerrar-sesion",
+        icon: <MdLogout />,
+      },
+    ],
+  },
 ];
 export const Navbar = () => {
   const [newPathName, setNewPathName] = useState<string>();

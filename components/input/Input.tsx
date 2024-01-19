@@ -17,7 +17,7 @@ export const Input = ({
   value,
 }: InputProps) => {
   return (
-    <div className="mb-4 mt-2 mr-4 w-full">
+    <div className="pb-4 pt-2 pr-4 w-full">
       <label
         className="block text-gray-700 text-sm font-bold mb-2"
         htmlFor="username"

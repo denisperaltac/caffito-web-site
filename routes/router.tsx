@@ -13,7 +13,7 @@ export const Router = ({ children }: { children: React.ReactNode }) => {
       content = (
         <>
           <Navbar />
-          <div className="mainContainer flex p-3 bg-slate-100 w-full h-full">
+          <div className="mainContainer flex p-3  w-full h-full">
             {children}
           </div>
         </>
@@ -24,7 +24,7 @@ export const Router = ({ children }: { children: React.ReactNode }) => {
       content = (
         <>
           <p>Seller</p>
-          <div className="flex p-3 bg-slate-100 w-full h-full">{children}</div>
+          <div className="flex p-3  w-full h-full">{children}</div>
         </>
       );
       break;
