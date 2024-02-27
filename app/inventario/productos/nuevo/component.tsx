@@ -70,8 +70,21 @@ const PuntoDeVenta = [
 ];
 
 export const NewProductComponent = ({ form, setForm }: props) => {
-  const [arrayProducList, setArrayProductList] = useState([]);
-  console.log(form);
+  const [arrayProducList, setArrayProductList] = useState<any[]>([]);
+
+  const isDisabledSave =
+    form.nombre &&
+    form.codigoReferencia &&
+    form.categoria &&
+    form.marca &&
+    arrayProducList.length > 0
+      ? false
+      : true;
+  const isDisabledProduct =
+    form.PrecioVenta && form.PrecioCosto && form.proovedor && form.puntoVenta
+      ? false
+      : true;
+
   return (
     <div className="w-full">
       <Header title="Nuevo Producto" />
@@ -129,6 +142,7 @@ export const NewProductComponent = ({ form, setForm }: props) => {
               attribute="puntoVenta"
               title="Punto de venta"
             />
+
             <InputSelect
               options={PuntoDeVenta}
               form={form}
@@ -147,16 +161,17 @@ export const NewProductComponent = ({ form, setForm }: props) => {
             <Input
               setForm={setForm}
               form={form}
-              title="Punto pedido"
+              title="Punto pedido (Optional)"
               attribute="Puntopedido"
             />
             <Input
               setForm={setForm}
               form={form}
-              title="Stock ideal"
+              title="Stock ideal (Optional)"
               attribute="Stockideal"
             />
           </div>
+
           <div className="w-full flex items-center">
             <Input
               setForm={setForm}
@@ -174,10 +189,27 @@ export const NewProductComponent = ({ form, setForm }: props) => {
             <Input
               setForm={setForm}
               form={form}
-              title="Precio Mayorista"
+              title="Precio Mayorista (Optional)"
               attribute="PrecioMayorista"
             />
-            <BtnIcon text="Agregar" type="Save">
+            <BtnIcon
+              text="Agregar"
+              type="Save"
+              disabled={isDisabledProduct}
+              action={() => {
+                let arrayProduct = {
+                  PrecioVenta: form.PrecioVenta,
+                  PrecioMayorista: form.PrecioMayorista,
+                  PrecioCosto: form.PrecioCosto,
+                  Stockideal: form.Stockideal,
+                  Puntopedido: form.Puntopedido,
+                  Cantidad: form.Cantidad,
+                  proovedor: form.proovedor,
+                  puntoVenta: form.puntoVenta,
+                };
+                setArrayProductList([arrayProduct]);
+              }}
+            >
               <FaPlus />
             </BtnIcon>
           </div>
@@ -218,7 +250,7 @@ export const NewProductComponent = ({ form, setForm }: props) => {
               <MdOutlineCancel />
             </BtnIcon>
           </Link>
-          <BtnIcon text="Guardar" type="Save">
+          <BtnIcon text="Guardar" type="Save" disabled={isDisabledSave}>
             <FaRegSave />
           </BtnIcon>
         </div>

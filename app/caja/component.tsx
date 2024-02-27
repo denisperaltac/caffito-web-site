@@ -1758,7 +1758,7 @@ export default function CajaComponent({
   const [cajaSelected, setCajaSelected] = useState<any>({});
   const [typeModal, setTypeModal] = useState<string>("");
   const [facturaSelected, setFacturaSelected] = useState<any>({});
-  console.log(facturaSelected);
+
   return (
     <div className="w-full">
       <Header title="Cajas" />

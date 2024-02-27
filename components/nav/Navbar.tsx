@@ -14,7 +14,8 @@ import {
   BsGear,
 } from "react-icons/bs";
 import { GoGear } from "react-icons/go";
-import { LiaCashRegisterSolid } from "react-icons/lia";
+import { FaCashRegister } from "react-icons/fa6";
+
 import { HiOutlineNewspaper } from "react-icons/hi2";
 import { IoPersonAddOutline } from "react-icons/io5";
 import { MdLogout, MdOutlinePeopleAlt } from "react-icons/md";
@@ -75,7 +76,7 @@ const Routes = [
     ],
   },
 
-  { title: "Caja", route: "/caja", icon: <LiaCashRegisterSolid /> },
+  { title: "Caja", route: "/caja", icon: <FaCashRegister /> },
   { title: "Ventas", route: "/ventas", icon: <BsShop /> },
   { title: "Facturación", route: "/facturacion", icon: <BsGraphUpArrow /> },
   { title: "Informes", route: "/informes", icon: <HiOutlineNewspaper /> },
