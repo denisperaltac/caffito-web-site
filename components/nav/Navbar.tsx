@@ -130,7 +130,7 @@ const Routes = [
       },
       {
         name: "Cerrar sesión",
-        route: "/cuenta/cerrar-sesion",
+        route: "/cerrar-sesion",
         icon: <MdLogout />,
       },
     ],

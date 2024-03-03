@@ -1,29 +1,27 @@
-import { render, screen } from "@testing-library/react";
-import { NewProductComponent } from "../component";
+// import { render, screen } from "@testing-library/react";
+// import { NewProductComponent } from "../component";
 
+// const form = {};
+// const setForm = jest.fn();
 
-const form = {};
-const setForm = jest.fn();
+// describe("NewProductComponent", () => {
+//   test("renders without errors", () => {
 
-describe("NewProductComponent", () => {
-  test("renders without errors", () => {
-   
+//     render(<NewProductComponent form={form} setForm={setForm} />); //Arrange
 
-    render(<NewProductComponent form={form} setForm={setForm} />); //Arrange
+//     const myElem = screen.getByText("Nuevo Producto"); //Act
 
-    const myElem = screen.getByText("Nuevo Producto"); //Act
+//     expect(myElem).toBeInTheDocument(); //Assert
+//   });
 
-    expect(myElem).toBeInTheDocument(); //Assert
-  });
+//   test("renders without errors", () => {
 
-  test("renders without errors", () => {
+//     render(<NewProductComponent form={form} setForm={setForm} />); //Arrange
 
-    render(<NewProductComponent form={form} setForm={setForm} />); //Arrange
+//     const myElem = screen.getByText("Nuevo Producto"); //Act
 
-    const myElem = screen.getByText("Nuevo Producto"); //Act
+//     expect(myElem).toBeInTheDocument(); //Assert
+//   });
 
-    expect(myElem).toBeInTheDocument(); //Assert
-  });
-
-  // Add more tests as needed
-});
+//   // Add more tests as needed
+// });

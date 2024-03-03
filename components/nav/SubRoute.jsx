@@ -1,8 +1,13 @@
+import { logOut } from "@/redux/actions";
+import { authUser } from "@/redux/features/userLogSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 
 export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const componentRef = useRef(null);
 
@@ -70,25 +75,45 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
           id="openSubRoutes"
           className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-500 z-10"
         >
-          {Route.subRoutes.map((e) => (
-            <Link
-              onClick={() => {
-                setOpen(!open);
-                setLoading(true);
-              }}
-              href={e.route}
-              key={e.route}
-              className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
+          {Route.subRoutes.map((e) =>
+            e.route === "cerrar-sesion" ? (
+              <div
+                onClick={() => {
+                  console.log("Entra");
+                  setOpen(!open);
+                  setLoading(true);
+                  dispatch(logOut());
+                }}
+                className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
               ${
                 e.route === pathName &&
                 "pointer-events-none bg-green-100 border-green-200 opacity-70"
               }
             }`}
-            >
-              {e.icon && e.icon}
-              <p>{e.name}</p>
-            </Link>
-          ))}
+              >
+                {e.icon && e.icon}
+                <p>{e.name}</p>{" "}
+              </div>
+            ) : (
+              <div
+                onClick={() => {
+                  console.log("Entra");
+                  setOpen(!open);
+                  setLoading(true);
+                  dispatch(logOut());
+                }}
+                className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
+              ${
+                e.route === pathName &&
+                "pointer-events-none bg-green-100 border-green-200 opacity-70"
+              }
+            }`}
+              >
+                {e.icon && e.icon}
+                <p>{e.name}</p>{" "}
+              </div>
+            )
+          )}
         </div>
       )}
     </div>

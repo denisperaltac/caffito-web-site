@@ -1,28 +1,38 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
-import axiosInstance from "@/config/axiosConfig";
+import axiosInstance, { setBearer } from "@/config/axiosConfig";
+import { baseURL } from "@/config/axiosConfig";
 import { Auth } from "./Auth";
-import { useAppDispatch } from "@/redux/hooks";
-import { authUser } from "@/redux/features/userLogSlice";
-import apiInstance from "./apiInst";
-import { Fetching } from "./test-caffito";
+import { useDispatch } from "react-redux";
+import { logIn } from "@/redux/actions";
 
 const AuthController = () => {
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({});
 
-  // Fetching();
-
   const onSubmit = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => console.log(json))
-      .catch((err) => console.log("Tu mama"));
+    axiosInstance
+      .post(`${baseURL}/api/authenticate`, form)
+      .then((response) => setBearer(response?.data?.id_token))
+      .then(() => getApiData())
+      .catch((err) => console.log("Error log in"));
+  };
 
-    Fetching();
+  const getApiData = () => {
+    axiosInstance
+      .get(`${baseURL}/api/account`)
+      .then((response) =>
+        dispatch(
+          logIn({
+            Role: response?.data?.login,
+            Name: response?.data?.firstName,
+          })
+        )
+      )
+      .catch((err) => console.log("Error getting user data"));
   };
 
   return (

@@ -1,15 +1,30 @@
 "use client";
-import { useAppSelector } from "@/redux/hooks";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AuthController from "../app/auth/authController";
 import { Navbar } from "@/components/nav/Navbar";
+import { useSelector } from "react-redux";
+import { Loader } from "@/components/loader/Loader";
+
 export const Router = ({ children }: { children: React.ReactNode }) => {
-  const Role = useAppSelector((state) => state.userLogReducer.Role);
+  const [loading, setLoading] = useState(true);
+  const Role = useSelector((state) => state?.User?.Role);
+  console.log(Role);
+
+  useEffect(() => {
+    // Simular una carga asincrónica de datos
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Aquí puedes ajustar el tiempo de espera según tus necesidades
+  }, []);
+
+  if (loading) {
+    return <Loader loading={loading}></Loader>; // Muestra un indicador de carga mientras se recuperan los datos del estado de Redux
+  }
 
   let content;
 
   switch (Role) {
-    case "Admin":
+    case "admin":
       content = (
         <>
           <Navbar />
@@ -20,7 +35,7 @@ export const Router = ({ children }: { children: React.ReactNode }) => {
       );
       break;
 
-    case "Seller":
+    case "seller":
       content = (
         <>
           <p>Seller</p>
