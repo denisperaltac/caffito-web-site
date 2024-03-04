@@ -1,7 +1,7 @@
-import { Providers } from "@/redux/provider";
 import { Router } from "../routes/router";
 import "./styles.css";
 import { Poppins } from "next/font/google";
+import ReduxProvider from "@/redux/redux-provider";
 
 const Poppin = Poppins({
   weight: ["300", "400", "700"],
@@ -16,9 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${Poppin.className} antialiased`}>
-        <Providers>
+        <ReduxProvider>
           <Router>{children}</Router>
-        </Providers>
+        </ReduxProvider>
       </body>
     </html>
   );

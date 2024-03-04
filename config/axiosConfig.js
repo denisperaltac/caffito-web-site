@@ -1,4 +1,3 @@
-import { useAppSelector } from "@/redux/hooks";
 import axios from "axios";
 
 export let baseURL = "http://test.caffito.com.ar";
@@ -15,7 +14,6 @@ export const setBearer = (Bearer) => {
     config.headers = {
       ...config.headers,
       ...headers,
-      // Authorization: ``,
     };
     return config;
   });

@@ -1,17 +1,17 @@
-"use client";
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux"; // Importa el hook useDispatch
 import axiosInstance, { setBearer } from "@/config/axiosConfig";
 import { baseURL } from "@/config/axiosConfig";
 import { Auth } from "./Auth";
-import { useDispatch } from "react-redux";
-import { logIn } from "@/redux/actions";
+import { authUser } from "@/redux/features/userLogSlice";
 
 const AuthController = () => {
-  const dispatch = useDispatch();
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({});
+
+  const dispatch = useDispatch();
 
   const onSubmit = () => {
     axiosInstance
@@ -26,7 +26,7 @@ const AuthController = () => {
       .get(`${baseURL}/api/account`)
       .then((response) =>
         dispatch(
-          logIn({
+          authUser({
             Role: response?.data?.login,
             Name: response?.data?.firstName,
           })

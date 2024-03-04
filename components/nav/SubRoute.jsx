@@ -1,6 +1,4 @@
-import { logOut } from "@/redux/actions";
 import { authUser } from "@/redux/features/userLogSlice";
-import { useAppDispatch } from "@/redux/hooks";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
@@ -89,7 +87,12 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
                 onClick={() => {
                   setOpen(!open);
                   setLoading(true);
-                  dispatch(logOut());
+                  dispatch(
+                    authUser({
+                      Role: "",
+                      Name: "",
+                    })
+                  );
                 }}
               >
                 {e.icon && e.icon}

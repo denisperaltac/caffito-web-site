@@ -7,7 +7,7 @@ import { Loader } from "@/components/loader/Loader";
 
 export const Router = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
-  const Role = useSelector((state: any) => state?.User?.Role);
+  const Role = useSelector((state: any) => state?.auth?.Role);
 
   useEffect(() => {
     // Simular una carga asincrónica de datos
