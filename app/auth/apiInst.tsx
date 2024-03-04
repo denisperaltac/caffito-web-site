@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const BASE_URL = "https://caffito.com.ar/api/authenticate";
+const BASE_URL = "http://test.caffito.com.ar";
 
 const apiInstance = axios.create({ baseURL: BASE_URL });
 
 apiInstance.interceptors.request.use((request) => {
-  request.headers!["authenticate"] = ""; // Aqui va el fucking token de tu mama
+  request.headers!["authenticate"] = "";
   return request;
 });
 

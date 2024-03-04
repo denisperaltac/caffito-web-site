@@ -1,8 +1,11 @@
+import { authUser } from "@/redux/features/userLogSlice";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 
 export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const componentRef = useRef(null);
 
@@ -31,7 +34,7 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
           "bg-green-50 border-green-200 rounded-sm hover:border-green-400"
         } ${
           Route.route === pathName
-            ? "pointer-events-none border-green-200 opacity-90"
+            ? "pointer-events-none opacity-70 bg-slate-200 rounded"
             : "border-transparent"
         } ${
           Route.subRoutes?.find((e) => e.route === pathName) && "bg-green-100"
@@ -68,26 +71,57 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
       {open && (
         <div
           id="openSubRoutes"
-          className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-200 z-10"
+          className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-500 z-10"
         >
-          {Route.subRoutes.map((e) => (
-            <Link
-              onClick={() => {
-                setOpen(!open);
-                setLoading(true);
-              }}
-              href={e.route}
-              key={e.route}
-              className={`transition ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
+          {Route.subRoutes.map((e) =>
+            e.route === "/cerrar-sesion" ? (
+              <Link
+                href={"/"}
+                key={e.route}
+                className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
+            ${
+              e.route === pathName &&
+              "pointer-events-none bg-green-100 border-green-200 opacity-70"
+            }
+          }`}
+                onClick={() => {
+                  setOpen(!open);
+                  setLoading(true);
+                  dispatch(
+                    authUser({
+                      Role: "",
+                      Name: "",
+                    })
+                  );
+                }}
+              >
+                {e.icon && e.icon}
+                <p className="pl-2 pt-[2px] text-small text-center align-middle items-center">
+                  <p>{e.name}</p>
+                </p>
+              </Link>
+            ) : (
+              <Link
+                href={e.route}
+                key={e.route}
+                className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
               ${
                 e.route === pathName &&
                 "pointer-events-none bg-green-100 border-green-200 opacity-70"
               }
             }`}
-            >
-              <p>{e.name}</p>
-            </Link>
-          ))}
+                onClick={() => {
+                  setOpen(!open);
+                  setLoading(true);
+                }}
+              >
+                {e.icon && e.icon}
+                <p className="pl-2 pt-[2px] text-small text-center align-middle items-center">
+                  <p>{e.name}</p>
+                </p>
+              </Link>
+            )
+          )}
         </div>
       )}
     </div>

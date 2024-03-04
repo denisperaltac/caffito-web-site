@@ -13,6 +13,7 @@ import Modal from "@/components/modals/Modal";
 import Btn from "@/components/btn/Btn";
 import BtnIcon from "@/components/btn/BtnIcon";
 import { FaPlus } from "react-icons/fa";
+import Link from "next/link";
 
 const clientes = [
   {
@@ -791,9 +792,11 @@ export default function ClientesComponent({
   return (
     <div className="w-full">
       <Header title="Clientes">
-        <BtnIcon text="Agregar Cliente" action={() => {}} type="Save">
-          <FaPlus />
-        </BtnIcon>
+        <Link href="/clientes/nuevo">
+          <BtnIcon text="Agregar Cliente" action={() => {}} type="Save">
+            <FaPlus />
+          </BtnIcon>
+        </Link>
       </Header>
       <section className="relative overflow-x-auto shadow-md items-center mx-auto tableScroll">
         <Table
@@ -825,7 +828,7 @@ export default function ClientesComponent({
                 <td className="iconStyle">
                   <LuNewspaper
                     className="w-6 h-6 iconHover"
-                    style={{ color: "#3B71CA" }}
+                    style={{ color: "#CE6D8B" }}
                     onClick={() => {
                       setCajaSelected(e);
                       setTypeModal("view");

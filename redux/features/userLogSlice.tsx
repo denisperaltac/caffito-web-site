@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export const userLogSlice = createSlice({
   name: "user",
-  initialState: { Role: "Admin", Name: "" },
+  initialState: { Role: "", Name: "", Bearer: "" },
   reducers: {
     authUser: (
       state,

@@ -3515,7 +3515,7 @@ export default function VentasComponent({
             })}
           />
         </section>
-        <div className="flex flex-col  justify-between min-w-[65vw] max-w-[80vw] bg-slate-50">
+        <div className="flex flex-col justify-between min-w-[65vw] max-w-[80vw] bg-slate-50">
           <section className="relative overflow-x-auto items-center mx-auto tableScroll min-w-[60vw] max-w-[80vw]">
             <InputSelect
               options={optionsClients}
@@ -3535,7 +3535,10 @@ export default function VentasComponent({
               }
               tbody={productosSelected.map((e: any) => {
                 return (
-                  <tr key={e.codigoReferencia}>
+                  <tr
+                    key={e.codigoReferencia}
+                    onClick={() => setForm({ ...form, e })}
+                  >
                     <td>{e.codigoReferencia}</td>
                     <td>{e.nombre}</td>
                     <td className={` text-center`}>

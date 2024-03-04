@@ -7,6 +7,7 @@
   --primary-color: rgba(13, 214, 58, 1);
   --secondary-color: rgba(238, 0, 0, 1);
   --yellow-color: rgb(216, 175, 77);
+  --blue-color: rgb(53, 100, 176);
   --green-color: rgb(44, 165, 141);
   --purple-color: rgb(132, 89, 107);
   --success-color: #198754;
@@ -131,9 +132,12 @@ label {
   border-radius: 0px 10px 10px 0px;
 }
 
-.tableScroll::-webkit-scrollbar-thumb {
-  background-color: var(--success-color);
+.tableScroll::-webkit-scrollbar:hover {
+  width: 20px;
+}
 
+.tableScroll::-webkit-scrollbar-thumb {
+  background-color: rgb(53, 100, 176);
   cursor: pointer;
 }
 
@@ -194,7 +198,7 @@ td {
   padding: 7px 12px;
   font-family: Poppins;
   cursor: pointer;
-  border: var(--green-color) solid 1px;
+  border: rgb(53, 100, 176, 0.8) solid 1px;
   border-radius: 3px;
   font-weight: 400;
   background-color: whitesmoke;
@@ -203,12 +207,12 @@ td {
 }
 
 .pagination .page-num:hover {
-  background-color: var(--hover-green-color);
+  background-color: rgb(53, 100, 176, 0.5);
   color: whitesmoke;
 }
 
 .pagination .active {
-  background-color: var(--green-color);
+  background-color: rgb(53, 100, 176);
   border: var(--hover-green-color) solid 1px;
   color: whitesmoke;
   padding: 7px 12px;
