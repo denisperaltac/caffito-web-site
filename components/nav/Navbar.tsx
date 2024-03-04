@@ -147,8 +147,7 @@ export const Navbar = () => {
       setNewPathName(pathName);
       setLoading(false);
     }
-  }, []);
-
+  }, [pathName]);
   return (
     <nav className="flex border-b-2 border-red-700 justify-between text-center align-bottom	">
       <Image src={LogoCaffito} className="w-[60px] ml-4" alt="Logo Caffito" />
