@@ -79,6 +79,7 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
             e.route === "/cerrar-sesion" ? (
               <Link
                 href={"/"}
+                key={e.route}
                 className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
             ${
               e.route === pathName &&
@@ -99,6 +100,7 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
             ) : (
               <Link
                 href={e.route}
+                key={e.route}
                 className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
               ${
                 e.route === pathName &&

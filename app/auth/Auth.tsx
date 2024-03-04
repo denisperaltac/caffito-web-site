@@ -1,6 +1,7 @@
 import Btn from "@/components/btn/Btn";
 import LogoCaffito from "@/assets/LogoCaffito.png";
 import React, { useEffect } from "react";
+import Image from "next/image";
 
 interface AuthProps {
   onSubmit: () => void;
@@ -31,7 +32,8 @@ export const Auth: React.FC<AuthProps> = ({
     <section className="bg-slate-500 w-screen h-screen flex flex-col items-center justify-center backgroundLogIn">
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-2 pb-8 mb-4">
-          <img src={LogoCaffito.src} alt="Logo Caffito" />
+          <Image src={LogoCaffito.src} alt="Logo Caffito" />
+
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
