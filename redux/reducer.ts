@@ -1,9 +1,14 @@
 import { LOG_IN, LOG_OUT, RESET_STATE, UserActionTypes } from "./actions";
 
-const initialState = {
+interface UserState {
+  User: {
+    Role?: string; // or whatever type Role is
+  };
+}
+
+const initialState: UserState = {
   User: {},
 };
-
 export default function reducer(state = initialState, action: UserActionTypes) {
   switch (action.type) {
     case RESET_STATE:

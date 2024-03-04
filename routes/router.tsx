@@ -7,8 +7,7 @@ import { Loader } from "@/components/loader/Loader";
 
 export const Router = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
-  const Role = useSelector((state) => state?.User?.Role);
-  console.log(Role);
+  const Role = useSelector((state: any) => state?.User?.Role);
 
   useEffect(() => {
     // Simular una carga asincrónica de datos
@@ -28,6 +27,7 @@ export const Router = ({ children }: { children: React.ReactNode }) => {
       content = (
         <>
           <Navbar />
+
           <div className="mainContainer flex p-3  w-full h-full">
             {children}
           </div>

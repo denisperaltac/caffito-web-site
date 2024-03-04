@@ -4,7 +4,10 @@ export const LOG_IN = "LOG_IN";
 
 interface LogInAction {
   type: typeof LOG_IN;
-  payload: any;
+  payload: {
+    Role?: string; // or whatever type Role is
+    Name?: string; // or whatever type Name is
+  };
 }
 
 interface LogOutAction {
@@ -27,10 +30,13 @@ export function logOut(): LogOutAction {
   };
 }
 
-export function logIn(state: any): LogInAction {
+export function logIn(payload: {
+  Role?: string; // or whatever type Role is
+  Name?: string; // or whatever type Name is
+}): LogInAction {
   return {
     type: LOG_IN,
-    payload: state,
+    payload,
   };
 }
 

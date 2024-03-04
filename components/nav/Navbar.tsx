@@ -45,7 +45,7 @@ const Routes = [
     subRoutes: [
       {
         name: "Gestion de stock",
-        route: "/inventario/gestion-de-Stock",
+        route: "/inventario/gestionDeStock",
         icon: <FaBoxesStacked />,
       },
       // { name: "Movimiento Stock", route: "/inventario/movimiento-stock" },

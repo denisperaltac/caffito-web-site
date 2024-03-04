@@ -76,42 +76,45 @@ export const SubRoute = ({ Route, subRoute, setLoading, pathName, icon }) => {
           className="showDiv fixed flex flex-col mt-3 p-3 bg-white border-2 rounded-md border-slate-500 z-10"
         >
           {Route.subRoutes.map((e) =>
-            e.route === "cerrar-sesion" ? (
-              <div
+            e.route === "/cerrar-sesion" ? (
+              <Link
+                href={"/"}
+                className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
+            ${
+              e.route === pathName &&
+              "pointer-events-none bg-green-100 border-green-200 opacity-70"
+            }
+          }`}
                 onClick={() => {
-                  console.log("Entra");
                   setOpen(!open);
                   setLoading(true);
                   dispatch(logOut());
                 }}
-                className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
-              ${
-                e.route === pathName &&
-                "pointer-events-none bg-green-100 border-green-200 opacity-70"
-              }
-            }`}
               >
                 {e.icon && e.icon}
-                <p>{e.name}</p>{" "}
-              </div>
+                <p className="pl-2 pt-[2px] text-small text-center align-middle items-center">
+                  <p>{e.name}</p>
+                </p>
+              </Link>
             ) : (
-              <div
-                onClick={() => {
-                  console.log("Entra");
-                  setOpen(!open);
-                  setLoading(true);
-                  dispatch(logOut());
-                }}
+              <Link
+                href={e.route}
                 className={`transition flex items-center gap-2  ease-out duration-300 hover:bg-green-100 hover:border-green-200 border-2 w-full p-1 px-2 rounded-md mb-1 
               ${
                 e.route === pathName &&
                 "pointer-events-none bg-green-100 border-green-200 opacity-70"
               }
             }`}
+                onClick={() => {
+                  setOpen(!open);
+                  setLoading(true);
+                }}
               >
                 {e.icon && e.icon}
-                <p>{e.name}</p>{" "}
-              </div>
+                <p className="pl-2 pt-[2px] text-small text-center align-middle items-center">
+                  <p>{e.name}</p>
+                </p>
+              </Link>
             )
           )}
         </div>
