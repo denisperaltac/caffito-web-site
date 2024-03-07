@@ -10,28 +10,32 @@ const AuthController = () => {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [form, setForm] = useState({});
-
   const dispatch = useDispatch();
 
   const onSubmit = () => {
+    setIsLoading(true);
     axiosInstance
       .post(`${baseURL}/api/authenticate`, form)
-      .then((response) => setBearer(response?.data?.id_token))
-      .then(() => getApiData())
-      .catch((err) => console.log("Error log in"));
+      .then((response) => {
+        setBearer(response?.data?.id_token);
+        getApiData(response?.data?.id_token);
+      })
+      .catch((err) => console.log("Error log in"))
+      .finally(() => setIsLoading(false));
   };
 
-  const getApiData = () => {
+  const getApiData = (BearerCode) => {
     axiosInstance
       .get(`${baseURL}/api/account`)
-      .then((response) =>
+      .then((response) => {
         dispatch(
           authUser({
             Role: response?.data?.login,
             Name: response?.data?.firstName,
+            Bearer: BearerCode,
           })
-        )
-      )
+        );
+      })
       .catch((err) => console.log("Error getting user data"));
   };
 

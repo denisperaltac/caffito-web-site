@@ -4,12 +4,14 @@ import AuthController from "../app/auth/authController";
 import { Navbar } from "@/components/nav/Navbar";
 import { useSelector } from "react-redux";
 import { Loader } from "@/components/loader/Loader";
+import { setBearer } from "@/config/axiosConfig";
 
 export const Router = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
-  const Role = useSelector((state: any) => state?.auth?.Role);
+  const { Role, Bearer } = useSelector((state: any) => state?.auth);
 
   useEffect(() => {
+    setBearer(Bearer);
     // Simular una carga asincrónica de datos
     setTimeout(() => {
       setLoading(false);

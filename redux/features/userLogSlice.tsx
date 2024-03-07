@@ -6,11 +6,15 @@ export const userLogSlice = createSlice({
   reducers: {
     authUser: (
       state,
-      action: PayloadAction<{ Role: string; Name: string }>
+      action: PayloadAction<{ Role: string; Name: string; Bearer: string }>
     ) => {
-      const { Role, Name } = action.payload;
-      state.Role = Role;
-      state.Name = Name;
+      const { Role, Name, Bearer } = action.payload;
+      return {
+        ...state,
+        Role: Role,
+        Name: Name,
+        Bearer: Bearer,
+      };
     },
   },
 });

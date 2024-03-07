@@ -6,6 +6,8 @@ interface BtnProps {
   type: string;
   disabled?: boolean;
   marginRigth?: any;
+  loading?: boolean;
+  minWidth?: string;
 }
 
 const Btn: React.FC<BtnProps> = ({
@@ -14,12 +16,14 @@ const Btn: React.FC<BtnProps> = ({
   type,
   disabled,
   marginRigth,
+  loading,
+  minWidth,
 }) => {
   return (
     <button
       type="button"
       onClick={() => action()}
-      className={`hover:filter hover:shadow-lg hover:scale-105 text-slate-100 rounded max-w-[200px] max-h-10 flex items-center justify-between py-2 px-2 border transition ${
+      className={`hover:filter hover:shadow-lg hover:scale-105 text-slate-100 rounded max-w-[200px] max-h-10 flex items-center justify-center py-2 px-2 border transition ${
         type === "close"
           ? "bg-red-500 "
           : type === "save"
@@ -31,7 +35,7 @@ const Btn: React.FC<BtnProps> = ({
         marginRigth && `mr-[5px]`
       }`}
     >
-      <span>{text}</span>
+      {loading ? <div className={`spinner-white`} /> : <span>{text}</span>}
     </button>
   );
 };
